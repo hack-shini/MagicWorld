@@ -5,6 +5,15 @@ public abstract class Character {
     Scanner clavier = new Scanner(System.in);
 
     private String  name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private int choice;
     private int choiceHero;
 
@@ -86,6 +95,12 @@ public abstract class Character {
 
     // ---------- ALL OTHERS METHODS ----------
 
+    /**
+     * Choice your Hero
+     *
+     * @return return joueur = your hero
+     */
+
     public Character choiceHero(){
         Character joueur = null;
 
@@ -106,8 +121,41 @@ public abstract class Character {
                 break;
         }
         return joueur;
+    }
 
 
+    /**
+     * Choice skills of your Heros
+     */
+
+    public void caracteristiques(){
+
+        System.out.println("Veuillez choisir le niveau de votre personnage :");
+        choice = clavier.nextInt();
+        setLevel(choice);
+
+        System.out.println("Veuillez choisir la force de votre personnage :");
+        choice = clavier.nextInt();
+        setStrength(choice);
+
+        System.out.println("Veuillez choisir l'agilité de votre personnage :");
+        choice = clavier.nextInt();
+        setAgility(choice);
+
+        System.out.println("Veuillez choisir l'intelligence de votre personnage :");
+        choice = clavier.nextInt();
+        setIntelligence(choice);
+    }
+
+    @Override
+    public String toString() {
+        return "Joueur " + getName() +
+                ", mon niveau est de " + getLevel() +
+                ", je possède " + getLife() + " de vitalité " +
+                ", ma force est de "+ getStrength()+
+                ", mon agilité est de "+ getAgility()+
+                ", mon intelligence est de "+ getIntelligence()+" !"+
+                '}';
     }
 
 

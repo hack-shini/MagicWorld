@@ -1,4 +1,5 @@
 public class Warrior extends Character{
+
     @Override
     public void basicAttack() {
 
