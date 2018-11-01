@@ -28,8 +28,21 @@ public class Main {
         System.out.println();
         System.out.println("Bonne bataille et amusez vous !");
 
-        System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
 
+
+        Warrior dimitri = new Warrior();
+        dimitri.setName("Dimitri");
+        System.out.println("Création du joueur " + dimitri.getName());
+        System.out.println("");
+        System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
+        Character raceChoisi = dimitri.choiceHero();
+
+
+        dimitri.toString();
+
+
+
+        System.out.println(dimitri.toString());
 
 
 

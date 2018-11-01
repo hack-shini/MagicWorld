@@ -10,7 +10,7 @@ public class Wizard extends Character{
     }
 
     @Override
-    public void warCry() {
-
+    public String  warCry() {
+        return "Abracadabra, je suis le magicien de ";
     }
 }

@@ -11,7 +11,7 @@ public class Prowler extends Character {
     }
 
     @Override
-    public void warCry() {
-
+    public String  warCry() {
+        return "Dans le mile ! Je suis le rôdeur de ";
     }
 }

@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public abstract class Character {
 
+    Character joueur;
+
     Scanner clavier = new Scanner(System.in);
 
     private String  name;
@@ -28,7 +30,7 @@ public abstract class Character {
 
     public abstract void specialAttack();
 
-    public abstract void warCry();
+    public abstract String  warCry();
 
 
     // ---------- GETTERS AND SETTERS ----------
@@ -102,7 +104,7 @@ public abstract class Character {
      */
 
     public Character choiceHero(){
-        Character joueur = null;
+        this.joueur = joueur;
 
         int choiceHero = clavier.nextInt();
 
@@ -149,13 +151,12 @@ public abstract class Character {
 
     @Override
     public String toString() {
-        return "Joueur " + getName() +
+        return    joueur.warCry() + getName() +
                 ", mon niveau est de " + getLevel() +
                 ", je possède " + getLife() + " de vitalité " +
                 ", ma force est de "+ getStrength()+
                 ", mon agilité est de "+ getAgility()+
-                ", mon intelligence est de "+ getIntelligence()+" !"+
-                '}';
+                ", mon intelligence est de "+ getIntelligence()+" !";
     }
 
 

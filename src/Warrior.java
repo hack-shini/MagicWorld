@@ -11,7 +11,7 @@ public class Warrior extends Character{
     }
 
     @Override
-    public void warCry() {
-
+    public String  warCry() {
+        return "Woarggg, je suis le guerrier de ";
     }
 }
