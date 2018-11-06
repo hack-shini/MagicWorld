@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public abstract class Character {
 
+
     Character joueur;
 
     Scanner clavier = new Scanner(System.in);
@@ -26,7 +27,7 @@ public abstract class Character {
     private int agility;
     private int intelligence;
 
-    public abstract void basicAttack();
+    public abstract int basicAttack();
 
     public abstract void specialAttack();
 

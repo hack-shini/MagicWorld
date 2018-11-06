@@ -9,7 +9,6 @@ public class Main {
         System.out.println("Bonjour à vous, jeunes aventuriers et bienvenus dans le MagiWorld");
         System.out.println("Un monde rempli de batailles épiques et de stratègies !!");
         System.out.println();
-        System.out.println();
 
 
         // ----------- Rules of the game -----------
@@ -27,22 +26,39 @@ public class Main {
         System.out.println("6 - Dès qu'un Héros arrive à 0 point de vie il perd la partie");
         System.out.println();
         System.out.println("Bonne bataille et amusez vous !");
+        System.out.println("");
 
 
+        /**
+         * Creation of player 1, choice Hero and caracteristique
+         */
 
-        Warrior dimitri = new Warrior();
+        Character dimitri = new Wizard();
         dimitri.setName("Dimitri");
         System.out.println("Création du joueur " + dimitri.getName());
-        System.out.println("");
         System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
         Character raceChoisi = dimitri.choiceHero();
+        dimitri.caracteristiques();
+        System.out.println();
 
 
-        dimitri.toString();
+/**
+         * Creation of player 2, choice Hero and caracteristique
+         */
 
-
+        Character jordan = new Wizard();
+        jordan.setName("Jordan");
+        System.out.println("Création du joueur " + jordan.getName());
+        System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
+        Character raceChoisi2 = jordan.choiceHero();
+        jordan.caracteristiques();
 
         System.out.println(dimitri.toString());
+        System.out.println(jordan.toString());
+
+
+
+
 
 
 

@@ -1,8 +1,8 @@
 public class Warrior extends Character{
 
     @Override
-    public void basicAttack() {
-
+    public int basicAttack() {
+        return getStrength();
     }
 
     @Override

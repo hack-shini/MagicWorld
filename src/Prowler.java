@@ -1,8 +1,8 @@
 public class Prowler extends Character {
 
     @Override
-    public void basicAttack() {
-
+    public int basicAttack() {
+        return getAgility();
     }
 
     @Override

@@ -1,12 +1,12 @@
 public class Wizard extends Character{
-    @Override
-    public void basicAttack() {
 
+    @Override
+    public int basicAttack() {
+       return getIntelligence();
     }
 
     @Override
     public void specialAttack() {
-
     }
 
     @Override
