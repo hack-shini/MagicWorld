@@ -5,9 +5,9 @@ public abstract class Character {
 
     Character joueur;
 
-    Scanner clavier = new Scanner(System.in);
-
     private String  name;
+
+    Scanner clavier = new Scanner(System.in);
 
     public String getName() {
         return name;
@@ -98,33 +98,7 @@ public abstract class Character {
 
     // ---------- ALL OTHERS METHODS ----------
 
-    /**
-     * Choice your Hero
-     *
-     * @return return joueur = your hero
-     */
 
-    public Character choiceHero(){
-        this.joueur = joueur;
-
-        int choiceHero = clavier.nextInt();
-
-        switch (choiceHero){
-            case 1:
-                joueur = new Warrior();
-                setChoiceHero(choiceHero);
-                break;
-            case 2:
-                joueur = new Prowler();
-                setChoiceHero(choiceHero);
-                break;
-            case 3:
-                joueur = new Wizard();
-                setChoiceHero(choiceHero);
-                break;
-        }
-        return joueur;
-    }
 
 
     /**

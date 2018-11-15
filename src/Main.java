@@ -1,8 +1,45 @@
 import javax.print.DocFlavor;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+
+    Scanner clavier = new Scanner(System.in);
+
+    /**
+     * Choice your Hero
+     *
+     * @return return joueur = your hero
+     */
+
+    private Character choiceHero(String name){
+        Character joueur = null;
+        System.out.println("Création du joueur " + name);
+        System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
+        int choiceHero = clavier.nextInt();
+
+        switch (choiceHero){
+            case 1:
+                joueur = new Warrior();
+                break;
+            case 2:
+                joueur = new Prowler();
+                break;
+            case 3:
+                joueur = new Wizard();
+                break;
+        }
+
+        joueur.setName(name);
+        joueur.caracteristiques();
+        joueur.toString();
+
+        return joueur;
+    }
+
+
+    public void main(String[] args) {
 
         // ----------- Welcome text -------------
 
@@ -33,38 +70,14 @@ public class Main {
          * Creation of player 1, choice Hero and caracteristique
          */
 
-        Character dimitri = new Wizard();
-        dimitri.setName("Dimitri");
-        System.out.println("Création du joueur " + dimitri.getName());
-        System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
-        Character raceChoisi = dimitri.choiceHero();
+        Character dimitri = choiceHero("Dimitri");
         dimitri.caracteristiques();
-        System.out.println();
 
-
-/**
+        /**
          * Creation of player 2, choice Hero and caracteristique
          */
-
-        Character jordan = new Wizard();
-        jordan.setName("Jordan");
-        System.out.println("Création du joueur " + jordan.getName());
-        System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
-        Character raceChoisi2 = jordan.choiceHero();
+        Character jordan = choiceHero("Jordan");
         jordan.caracteristiques();
-
-        System.out.println(dimitri.toString());
-        System.out.println(jordan.toString());
-
-
-
-
-
-
-
-
-
-
 
     }
 
