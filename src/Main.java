@@ -1,45 +1,8 @@
-import javax.print.DocFlavor;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
-
-    Scanner clavier = new Scanner(System.in);
-
-    /**
-     * Choice your Hero
-     *
-     * @return return joueur = your hero
-     */
-
-    private Character choiceHero(String name){
-        Character joueur = null;
-        System.out.println("Création du joueur " + name);
-        System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
-        int choiceHero = clavier.nextInt();
-
-        switch (choiceHero){
-            case 1:
-                joueur = new Warrior();
-                break;
-            case 2:
-                joueur = new Prowler();
-                break;
-            case 3:
-                joueur = new Wizard();
-                break;
-        }
-
-        joueur.setName(name);
-        joueur.caracteristiques();
-        joueur.toString();
-
-        return joueur;
-    }
-
-
-    public void main(String[] args) {
+    public static void main(String[] args) {
 
         // ----------- Welcome text -------------
 
@@ -80,5 +43,42 @@ public class Main {
         jordan.caracteristiques();
 
     }
+
+
+
+    static Scanner clavier = new Scanner(System.in);
+
+    /**
+     * Choice your Hero
+     *
+     * @return return joueur = your hero
+     */
+
+    public static Character choiceHero(String name){
+        Character joueur = null;
+        System.out.println("Création du joueur " + name);
+        System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
+        int choiceHero = clavier.nextInt();
+
+        switch (choiceHero){
+            case 1:
+                joueur = new Warrior();
+                break;
+            case 2:
+                joueur = new Prowler();
+                break;
+            case 3:
+                joueur = new Wizard();
+                break;
+        }
+
+        joueur.setName(name);
+        joueur.caracteristiques();
+        System.out.println(joueur.toString());
+
+        return joueur;
+    }
+
+
 
 }
