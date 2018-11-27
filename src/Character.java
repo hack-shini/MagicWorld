@@ -122,17 +122,10 @@ public abstract class Character {
         System.out.println("Veuillez choisir l'intelligence de votre personnage :");
         choice = clavier.nextInt();
         setIntelligence(choice);
+
     }
 
-    @Override
-    public String toString() {
-        return    joueur.warCry() + getName() +
-                ", mon niveau est de " + getLevel() +
-                ", je possède " + getLife() + " de vitalité " +
-                ", ma force est de "+ getStrength()+
-                ", mon agilité est de "+ getAgility()+
-                ", mon intelligence est de "+ getIntelligence()+" !";
-    }
+
 
 
 }
