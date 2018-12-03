@@ -4,10 +4,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Character joueur = null;
-
-
-
         // ----------- Welcome text -------------
 
         System.out.println("Bonjour à vous, jeunes aventuriers et bienvenus dans le MagiWorld");
@@ -38,8 +34,7 @@ public class Main {
          */
 
         Character dimitri = choiceHero("Dimitri");
-        dimitri.caracteristiques();
-        System.out.println(dimitri.toString());
+
 
         /**
          * Creation of player 2, choice Hero and caracteristique
@@ -68,17 +63,18 @@ public class Main {
         switch (choiceHero){
             case 1:
                 joueur = new Warrior();
-                joueur.setName(name);
                 break;
             case 2:
                 joueur = new Prowler();
-                joueur.setName(name);
                 break;
             case 3:
                 joueur = new Wizard();
-                joueur.setName(name);
                 break;
         }
+
+        joueur.setName(name);
+        joueur.caracteristiques();
+        System.out.println(joueur.toString());
                 return joueur;
     }
 

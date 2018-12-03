@@ -6,7 +6,8 @@ public class Wizard extends Character{
     }
 
     @Override
-    public void specialAttack() {
+    public int specialAttack() {
+       return getLife() + (getIntelligence() * 2);
     }
 
     @Override

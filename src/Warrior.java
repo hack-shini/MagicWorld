@@ -6,8 +6,10 @@ public class Warrior extends Character{
     }
 
     @Override
-    public void specialAttack() {
-
+    public int specialAttack() {
+        int newVitality = getLife() - (getStrength() / 2);
+        setLife(newVitality);
+        return getStrength() * 2;
     }
 
     @Override

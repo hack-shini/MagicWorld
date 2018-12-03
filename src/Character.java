@@ -2,24 +2,10 @@ import java.util.Scanner;
 
 public abstract class Character {
 
-
-    Character joueur;
-
     private String  name;
-
-    Scanner clavier = new Scanner(System.in);
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     private int choice;
     private int choiceHero;
-
 
     private int level;
     private int life;
@@ -29,12 +15,21 @@ public abstract class Character {
 
     public abstract int basicAttack();
 
-    public abstract void specialAttack();
+    public abstract int specialAttack();
 
     public abstract String  warCry();
 
 
     // ---------- GETTERS AND SETTERS ----------
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     // Choice Hero
 
@@ -63,12 +58,16 @@ public abstract class Character {
 
     public void setLevel(int level) {
         this.level = level;
+        this.life = level * 5;
     }
 
     public int getLife() {
-        return getLevel() * 5;
+        return life;
     }
 
+    public void setLife(int life) {
+        this.life = life;
+    }
 
     public int getStrength() {
         return strength;
@@ -106,6 +105,7 @@ public abstract class Character {
      */
 
     public void caracteristiques(){
+        Scanner clavier = new Scanner(System.in);
 
         System.out.println("Veuillez choisir le niveau de votre personnage :");
         choice = clavier.nextInt();
@@ -123,6 +123,16 @@ public abstract class Character {
         choice = clavier.nextInt();
         setIntelligence(choice);
 
+    }
+
+    @Override
+    public String toString() {
+        return    this.warCry() + getName() +
+                ", mon niveau est de " + getLevel() +
+                ", je possède " + getLife() + " de vitalité " +
+                ", ma force est de "+ getStrength()+
+                ", mon agilité est de "+ getAgility()+
+                ", mon intelligence est de "+ getIntelligence()+" !";
     }
 
 
