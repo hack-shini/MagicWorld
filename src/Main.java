@@ -39,8 +39,8 @@ public class Main {
         /**
          * Creation of player 2, choice Hero and caracteristique
          */
-//        Character jordan = choiceHero("Jordan");
-//        jordan.caracteristiques();
+        Character jordan = choiceHero("Jordan");
+
 
     }
 
@@ -54,29 +54,46 @@ public class Main {
      * @return return joueur = your hero
      */
 
-    private static Character choiceHero(String name){
-        Character joueur = null;
-        System.out.println("Création du joueur " + name);
-        System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
-        int choiceHero = clavier.nextInt();
+    private static Character choiceHero(String name) {
 
-        switch (choiceHero){
-            case 1:
-                joueur = new Warrior();
-                break;
-            case 2:
-                joueur = new Prowler();
-                break;
-            case 3:
-                joueur = new Wizard();
-                break;
-        }
+        Character joueur = null;
+        int choiceHero;
+        do {
+            System.out.println("Création du joueur " + name);
+            System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
+            choiceHero = clavier.nextInt();
+
+
+            switch (choiceHero) {
+                case 1:
+                    joueur = new Warrior();
+                    break;
+                case 2:
+                    joueur = new Prowler();
+                    break;
+                case 3:
+                    joueur = new Wizard();
+                    break;
+                default:
+                    System.out.println("l'entrée est fausse.");
+            }
+        } while (choiceHero < 1 || choiceHero > 3);
 
         joueur.setName(name);
         joueur.caracteristiques();
         System.out.println(joueur.toString());
-                return joueur;
+        return joueur;
+
+
     }
+
+    private static void fight(Character joueur1, Character joueur2){
+            do{
+                System.out.println(joueur1 + " , vous avez le choix entre 2 attaques : 1 - Basique, 2 - Spéciale");
+            }while (joueur1.getLife() <= 0 || joueur2.getLife() <= 0);
+    }
+
+
 
 
 
