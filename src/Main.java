@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -57,13 +58,27 @@ public class Main {
     private static Character choiceHero(String name) {
 
         Character joueur = null;
-        int choiceHero;
+        int choiceHero = 0;
+        boolean responseIsGood;
+
+        // Boucle for the choice of Hero
         do {
             System.out.println("Création du joueur " + name);
             System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
-            choiceHero = clavier.nextInt();
 
 
+            // Test choiceHero != string
+           try {
+               choiceHero = clavier.nextInt();
+               responseIsGood = true;
+           }catch (InputMismatchException e){
+               clavier.next();
+               System.out.println("Vous avez saisi un caractère non valide");
+               responseIsGood = false;
+           }
+
+
+           // Switch for the choice of Hero
             switch (choiceHero) {
                 case 1:
                     joueur = new Warrior();
@@ -80,7 +95,7 @@ public class Main {
         } while (choiceHero < 1 || choiceHero > 3);
 
         joueur.setName(name);
-        joueur.caracteristiques();
+        joueur.caracteristiques(); //Call public void caracteristique() for the skill of your hero
         System.out.println(joueur.toString());
         return joueur;
 
