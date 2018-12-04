@@ -36,11 +36,17 @@ public class Main {
 
         Character dimitri = choiceHero("Dimitri");
 
+        System.out.println("");
 
         /**
          * Creation of player 2, choice Hero and caracteristique
          */
         Character jordan = choiceHero("Jordan");
+
+        /**
+         * Call fight method for the fight
+         */
+        fight(dimitri, jordan);
 
 
     }
@@ -104,7 +110,15 @@ public class Main {
 
     private static void fight(Character joueur1, Character joueur2){
             do{
-                System.out.println(joueur1 + " , vous avez le choix entre 2 attaques : 1 - Basique, 2 - Spéciale");
+                // Change hero who attack
+                Character temp;
+                temp = joueur1;
+                joueur1 = joueur2;
+                joueur2 = temp;
+
+
+                System.out.println(" ");
+                System.out.println(joueur1.getName() + " , vous avez le choix entre 2 attaques : 1 - Basique, 2 - Spéciale");
             }while (joueur1.getLife() <= 0 || joueur2.getLife() <= 0);
     }
 
