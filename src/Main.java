@@ -66,10 +66,10 @@ public class Main {
         Character joueur = null;
         int choiceHero = 0;
         boolean responseIsGood;
+        System.out.println("Création du joueur " + name);
 
         // Boucle for the choice of Hero
         do {
-            System.out.println("Création du joueur " + name);
             System.out.println("Veuillez choisir la classe de votre Héros : 1 - Guerrier, 2 - Rôdeur, 3 - Magicien");
 
 
@@ -95,10 +95,8 @@ public class Main {
                 case 3:
                     joueur = new Wizard();
                     break;
-                default:
-                    System.out.println("l'entrée est fausse.");
             }
-        } while (choiceHero < 1 || choiceHero > 3);
+        } while (choiceHero < 1 || choiceHero > 3 || responseIsGood == false);
 
         joueur.setName(name);
         joueur.caracteristiques(); //Call public void caracteristique() for the skill of your hero

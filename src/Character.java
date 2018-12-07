@@ -113,79 +113,97 @@ public abstract class Character {
 
 
 
-
-
-        // --------------- CHOICE STRENGTH OF HERO and VERIFICATION
-
-        System.out.println("Veuillez choisir la force de votre personnage :");
+        // BOUCLE FOR VERIFICATION OF STR + ABILITY + INTEL <= LEVEL |||||||||||||||||||||| AND CHOICE STR / ABI / INTEL
         do {
 
-            try {
-                choice = clavier.nextInt();
-                reponseIsGood = true;
-        }catch (InputMismatchException e){
-                clavier.next();
-                reponseIsGood = false;
-                System.out.println("La force saisie est invalide, recommencer svp.");
+            // --------------- CHOICE STRENGTH OF HERO and VERIFICATION
+
+            do {
                 System.out.println("Veuillez choisir la force de votre personnage :");
-        }
+                try {
+                    choice = clavier.nextInt();
+                    reponseIsGood = true;
+                }catch (InputMismatchException e){
+                    clavier.next();
+                    reponseIsGood = false;
+                }
 
-            setStrength(choice);
+                setStrength(choice);
 
-            if (strength > level || strength < -1){
-                System.out.println("Le montant de la force saisie est incorrect, recommencer svp.");
-            }
+                if (strength > level || strength < -1){
+                    System.out.println("La force saisie est invalide, recommencer svp.");
+                }else if (reponseIsGood == false){
+                    System.out.println("La force saisie est invalide, recommencer svp.");
+                }
 
             }while (strength > level || strength < -1 || reponseIsGood == false);
-        // ---- END CHOICE STRENGTH
+            // ---- END CHOICE STRENGTH
 
 
 
 
-        // --------------- CHOICE AGILITY OF HERO and VERIFICATION
+            // --------------- CHOICE AGILITY OF HERO and VERIFICATION
 
-        System.out.println("Veuillez choisir l'agilité de votre personnage :");
-        do{
+            do{
+                System.out.println("Veuillez choisir l'agilité de votre personnage :");
+                try {
+                    choice = clavier.nextInt();
+                    reponseIsGood = true;
+                }catch (InputMismatchException e){
+                    clavier.next();
+                    reponseIsGood = false;
+                }
 
-            try {
-                choice = clavier.nextInt();
-                reponseIsGood = true;
-            }catch (InputMismatchException e){
-                clavier.next();
-                reponseIsGood = false;
-                System.out.println("L'agilité saisie est invalide, recommencer svp.");
-                System.out.println("Veuillez choisir la force de votre personnage :");
-            }
+                setAgility(choice);
 
-            setAgility(choice);
+                if (agility > level || agility < -1){
+                    System.out.println("L'agilité saisie est invalide, recommencer svp.");
+                }else if (reponseIsGood == false){
+                    System.out.println("L'agilité saisie est invalide, recommencer svp.");
+                }
 
-            if (agility > level || agility < -1){
-                System.out.println("Le montant de l'agilité saisie est incorrect, recommencez svp.");
-            }
-
-        }while (agility > level || agility < -1 || reponseIsGood == false);
-        // ---- END CHOICE AGILITY
-
+            }while (agility > level || agility < -1 || reponseIsGood == false);
+            // ---- END CHOICE AGILITY
 
 
 
-        // --------------- CHOICE INTELLIGENCE OF HERO and VERIFICATION
 
-        System.out.println("Veuillez choisir l'intelligence de votre personnage :");
+            // --------------- CHOICE INTELLIGENCE OF HERO and VERIFICATION
 
-        do {
-            try {
-                choice = clavier.nextInt();
-                reponseIsGood = true;
-            }catch (InputMismatchException e){
-                reponseIsGood = false;
-                clavier.next();
-                System.out.println("L'intelligence saisie est invalide, recommencer svp.");
+            do {
                 System.out.println("Veuillez choisir l'intelligence de votre personnage :");
+                try {
+                    choice = clavier.nextInt();
+                    reponseIsGood = true;
+                }catch (InputMismatchException e){
+                    reponseIsGood = false;
+                    clavier.next();
+                }
+                setIntelligence(choice);
+
+                if (intelligence > level || intelligence < -1){
+                    System.out.println("L'intelligence saisie est invalide, recommencer svp.");
+                }else if (reponseIsGood == false){
+                    System.out.println("L'intelligence saisie est invalide, recommencer svp.");
+                }
+            }while (intelligence > level || intelligence < -1 || reponseIsGood == false);
+            // ---- END CHOICE INTELLIGENCE
+
+            if ((intelligence + agility + strength) > level){
+                System.out.println("Le total de vos points de force, abilité et intelligence dépasse votre level.");
+                System.out.println("Petit rappel de la règle n°4.");
+                System.out.println("4 - Vous devrez choisir la force, l'intelligence et l'agilité de votre Héros");
+                System.out.println("   - Le montant total de vos points de caractèristiques de doit pas dépasser le niveau de votre Héros. Exemple si vous êtes level 50 :");
+                System.out.println("     - Votre force est de 25, votre intelligence 15 et votre agilité 10  ---> Cela est possible car le total des points est de 50");
+                System.out.println("     - Votre force est de 45, votre intelligence 25 et votre agilité 15  ---> Cela n'est pas possible car le total des points est de 80");
+                System.out.println("");
+                System.out.println("Veuillez recommencer la saisie de vos compétences.");
             }
-            setIntelligence(choice);
-        }while (intelligence > level || intelligence < -1 || reponseIsGood == false);
-        // ---- END CHOICE INTELLIGENCE
+
+        }while ((intelligence + agility + strength) > level); // END BOUCLE
+
+
+
 
 
 
