@@ -66,7 +66,7 @@ public class Main {
         Character joueur = null;
         int choiceHero = 0;
         boolean responseIsGood;
-        System.out.println("Création du joueur " + name);
+        System.out.println("Création du " + name);
 
         // Boucle for the choice of Hero
         do {
@@ -131,14 +131,17 @@ public class Main {
                 newVitality = joueur2.getLife() - degats;
                 joueur2.setLife(newVitality);
 
-                if (joueur1.getLife() <= 0 || joueur2.getLife() <= 0){
+                if (joueur2.getLife() > 0){
                     // Change hero who attack IF life of players != 0
                     Character temp;
                     temp = joueur1;
                     joueur1 = joueur2;
                     joueur2 = temp;
                 }
-            }while (joueur1.getLife() <= 0 || joueur2.getLife() <= 0);
+            }while (joueur2.getLife() > 0);
+
+        System.out.println(joueur2.getName() + " a perdu tout ces points de vies.");
+        System.out.println(joueur1.getName() + " Remporte le combat epique.");
     }
 
 

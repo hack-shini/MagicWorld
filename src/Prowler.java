@@ -7,7 +7,9 @@ public class Prowler extends Character {
 
     @Override
     public int specialAttack() {
-        return (getLevel() / 2) + getAgility();
+        int newAgility = (getLevel() / 2) + getAgility();
+        setAgility(newAgility);
+        return 0;
     }
 
     @Override
