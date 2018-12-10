@@ -34,14 +34,14 @@ public class Main {
          * Creation of player 1, choice Hero and caracteristique
          */
 
-        Character dimitri = choiceHero("Dimitri");
+        Character dimitri = choiceHero("Joueur 1 - Dimitri");
 
         System.out.println("");
 
         /**
          * Creation of player 2, choice Hero and caracteristique
          */
-        Character jordan = choiceHero("Jordan");
+        Character jordan = choiceHero("Joueur 2 - Jordan");
 
         /**
          * Call fight method for the fight
@@ -108,15 +108,36 @@ public class Main {
 
     private static void fight(Character joueur1, Character joueur2){
             do{
-                // Change hero who attack
-                Character temp;
-                temp = joueur1;
-                joueur1 = joueur2;
-                joueur2 = temp;
-
+                int choiceAttack = 0;
+                int degats = 0;
+                int newVitality = 0;
+                Scanner clavier = new Scanner(System.in);
 
                 System.out.println(" ");
-                System.out.println(joueur1.getName() + " , vous avez le choix entre 2 attaques : 1 - Basique, 2 - Spéciale");
+                System.out.println(joueur1.getName() + ", vous avez " + joueur1.getLife() + " de vitalité. Vous avez le choix entre 2 attaques : 1 - Basique, 2 - Spéciale");
+                choiceAttack = clavier.nextInt();
+
+                switch (choiceAttack){
+                    case 1:
+                        degats = joueur1.basicAttack();
+                        break;
+                    case 2:
+                        degats = joueur1.specialAttack();
+                        break;
+                }
+
+                System.out.println(joueur2.getName() + " perds " + degats + " de vie.");
+
+                newVitality = joueur2.getLife() - degats;
+                joueur2.setLife(newVitality);
+
+                if (joueur1.getLife() <= 0 || joueur2.getLife() <= 0){
+                    // Change hero who attack IF life of players != 0
+                    Character temp;
+                    temp = joueur1;
+                    joueur1 = joueur2;
+                    joueur2 = temp;
+                }
             }while (joueur1.getLife() <= 0 || joueur2.getLife() <= 0);
     }
 
