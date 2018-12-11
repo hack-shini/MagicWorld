@@ -111,20 +111,37 @@ public class Main {
                 int choiceAttack = 0;
                 int degats = 0;
                 int newVitality = 0;
+
+                boolean responseIsGood;
                 Scanner clavier = new Scanner(System.in);
 
                 System.out.println(" ");
-                System.out.println(joueur1.getName() + ", vous avez " + joueur1.getLife() + " de vitalité. Vous avez le choix entre 2 attaques : 1 - Basique, 2 - Spéciale");
-                choiceAttack = clavier.nextInt();
 
-                switch (choiceAttack){
-                    case 1:
-                        degats = joueur1.basicAttack();
-                        break;
-                    case 2:
-                        degats = joueur1.specialAttack();
-                        break;
-                }
+                do {
+
+                    System.out.println(joueur1.getName() + ", vous avez " + joueur1.getLife() + " de vitalité. Vous avez le choix entre 2 attaques : 1 - Basique, 2 - Spéciale");
+
+                    try {
+                        choiceAttack = clavier.nextInt();
+                        responseIsGood = true;
+                    }catch (InputMismatchException e){
+                        clavier.next();
+                        responseIsGood = false;
+                        System.out.println("Vous avez choisi une mauvaise attaque");
+                    }
+
+                        switch (choiceAttack){
+                            case 1:
+                                degats = joueur1.basicAttack();
+                                break;
+                            case 2:
+                                degats = joueur1.specialAttack();
+                                break;
+                                default:
+                                    System.out.println("Vous avez choisi une mauvaise attaque.");
+                        }
+                }while (responseIsGood == false);
+
 
                 System.out.println(joueur2.getName() + " perds " + degats + " de vie.");
 
